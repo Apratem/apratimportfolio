@@ -6,7 +6,6 @@
     --bg-black-50: #e8dfec;
     --text-black-900: #302e4d;
     --text-black-700: #504e70;
-
 }
 body.dark 
 {
@@ -41,7 +40,7 @@ h3 {
 }
 
 ul {
-    list-style-type: none;
+    list-style: none;
 
 }
 
@@ -51,16 +50,44 @@ ul {
     display: block;
     padding: 0 30px;
     opacity: 1;
+    position: fixed;
+    left: 270px;
+    top: 0;
+    right: 0;
+    bottom: 0%;
+    z-index: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    transition: all 0.3s ease;
+
+}
+.section.back-section
+{
+    z-index: 1;
+}
+.section.active
+{
+    z-index: 2;
+    opacity: 1;
+    animation: slideSection 1s ease;
+}
+
+@keyframes slideSection
+{
+    0%
+    {
+        transform: translateX(100%);
+    }
+    100%
+    {
+        transform: translateX(0%);
+    }
 }
 
 .hidden {
     display: none !important;
 }
 
-.main-content {
-    padding-left: 16%;
-
-}
 
 .padd-15 {
     padding-left: 15px;
@@ -160,6 +187,7 @@ ul {
     justify-content: center;
     align-items: center;
     z-index: 10;
+    transition: all 0.3s ease;
 }
 
 .aside .logo {
@@ -222,6 +250,7 @@ ul {
     display: none;
     align-items: center;
     justify-content: center;
+    transition: all 0.3s ease;
 }
 
 .aside .nav-toggler span {
@@ -232,7 +261,9 @@ ul {
     position: relative;
 
 }
-
+.aside .nav-toggler.open span{
+    background-color: transparent;
+}
 .aside .nav-toggler span::before {
     content: '';
     height: 2px;
@@ -242,7 +273,11 @@ ul {
     top: -6px;
     left: 0;
 }
-
+.aside .nav-toggler.open span::before
+{
+    transform: rotate(45deg);
+    top: 0;
+}
 .aside .nav-toggler span::after {
     content: '';
     height: 2px;
@@ -252,7 +287,11 @@ ul {
     top: 6px;
     left: 0;
 }
-
+.aside .nav-toggler.open span::after
+{
+    transform: rotate(-45deg);
+    top: 0;
+}
 .aside .nav {
     margin-top: 30vh;
 
@@ -355,7 +394,7 @@ h3.my-profession {
     position: absolute;
     height: 60px;
     width: 60px;
-    left: 5px;
+    left: 40px;
     top: -20px;
     border-top: 10px solid var(--skin-color);
     border-left: 10px solid var(--skin-color);
@@ -366,7 +405,7 @@ h3.my-profession {
     position: absolute;
     height: 60px;
     width: 60px;
-    right: -5px;
+    right: 40px;
     bottom: -20px;
     border-bottom: 10px solid var(--skin-color);
     border-right: 10px solid var(--skin-color);
@@ -448,7 +487,6 @@ h3.my-profession {
 }
 
 .about .about-content .personal-info .buttons .btn {
-    margin-right: 15px;
     margin-top: 10px;
 }
 
@@ -625,6 +663,9 @@ h3.my-profession {
     background-size: cover;
     display: block;
 }
+/* image overlay*/
+
+.portfolio .pimage
 
 /* contact */
 .contact-title {
@@ -668,6 +709,7 @@ h3.my-profession {
     color: var(--text-black-900);
     text-transform: capitalize;
     margin: 15px 0 5px;
+    
 }
 
 .contact .contact-info-item p {
@@ -756,7 +798,7 @@ h3.my-profession {
 .contact .contact-form .btn {
     height: 50px;
     padding: 0 50px;
-
+    cursor: pointer;
 }
 
 /* Responsive */
@@ -768,11 +810,34 @@ h3.my-profession {
     .aside {
         left: -270px;
     }
-
-    .main-content {
-        padding-left: 0;
+    .section .container
+    {
+        padding-top: 70px;
     }
-
+    .aside.open
+    {
+        left: 0;
+    }
+    .aside .nav-toggler
+    {
+        display: flex;
+        left: 30px;
+    }
+    .aside .nav-toggler.open
+    {
+        left: 280px;
+    }
+    .section{
+        left: 0;
+    }
+    .section.open
+    {
+        left: 270px;
+    }
+    .home .home-img 
+    {
+        display: flex;
+    }
     .about .about-content .personal-info .info-item p span {
         display: block;
         margin-left: 0;
