@@ -703,12 +703,13 @@ h3.my-profession {
 
 }
 
-.contact .contact-info-item h4 {
-    font-size: 18px;
+.contact h4 {
+    font-size: 14px;
     /* font weight:*/
     color: var(--text-black-900);
     text-transform: capitalize;
-    margin: 15px 0 5px;
+    margin: 15px 0 15px;
+    text-align: center;
     
 }
 
